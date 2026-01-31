@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renewable Resource Energy Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f4f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        nav h1 {
+            color: #00ffcc;
+            font-size: 24px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00ffcc;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url("https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero h2 {
+            font-size: clamp(32px, 5vw, 60px);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-top: 10px;
+            animation: slideUp 1.5s ease-in-out;
+        }
+
+        .hero button {
+            margin-top: 30px;
+            padding: 15px 35px;
+            border: none;
+            background: #00ffcc;
+            color: #111;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+
+        .hero button:hover {
+            background: #00ccaa;
+            transform: scale(1.05);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .title h2 {
+            font-size: 36px;
+            color: #009999;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .title h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: #00ffcc;
+            bottom: 0;
+            left: 25%;
+        }
+
+        /* ENERGY TYPES GRID */
+        .energy-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: 0.4s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            padding: 20px 20px 10px;
+            color: #007777;
+        }
+
+        .card p {
+            padding: 0 20px 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* GALLERY */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.03);
+            filter: brightness(1.1);
+        }
+
+        /* FORM */
+        form {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        form input:focus, form textarea:focus {
+            border-color: #009999;
+        }
+
+        form button {
+            background: #009999;
+            color: white;
+            border: none;
+            padding: 15px;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        form button:hover {
+            background: #007777;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* MOBILE FIXES */
+        @media (max-width: 768px) {
+            nav { padding: 15px 20px; }
+            nav ul { display: none; } /* Could add a hamburger menu here */
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <h1>EcoPower</h1>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#types">Energy Types</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#ideas">Contact</a></li>
+    </ul>
+</nav>
+
+<div class="hero" id="home">
+    <div>
+        <h2>Powering The Future</h2>
+        <p>Clean Energy Solutions for a Greener Tomorrow</p>
+        <button onclick="document.getElementById('ideas').scrollIntoView()">Join the Movement</button>
+    </div>
+</div>
+
+<section id="about">
+    <div class="title"><h2>About Our Project</h2></div>
+    <div style="text-align: center; max-width: 800px; margin: auto;">
+        <p>Our mission is to accelerate the transition to sustainable energy. By harnessing the natural power of the sun, wind, and water, we aim to reduce carbon footprints and provide clean, affordable energy for everyone.</p>
+    </div>
+</section>
+
+
+
+[Image of a solar panel and wind turbine renewable energy diagram]
+
+
+<section id="types">
+    <div class="title"><h2>Energy Sources</h2></div>
+    <div class="energy-types">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=500&q=60" alt="Solar">
+            <h3>Solar Energy</h3>
+            <p>Capturing sunlight to generate clean electricity through photovoltaic cells.</p>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=500&q=60" alt="Wind">
+            <h3>Wind Energy</h3>
+            <p>Utilizing high-altitude wind currents to drive turbines and produce power.</p>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1509395062183-67c5ad6faff9?auto=format&fit=crop&w=500&q=60" alt="Hydro">
+            <h3>Hydro Energy</h3>
+            <p>Using the kinetic energy of flowing water in rivers or dams to generate power.</p>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=500&q=60" alt="Biomass">
+            <h3>Biomass Energy</h3>
+            <p>Converting organic materials into carbon-neutral heat and electricity.</p>
+        </div>
+    </div>
+</section>
+
+<section id="gallery">
+    <div class="title"><h2>Project Gallery</h2></div>
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=500&q=60" alt="Solar Farm">
+        <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=500&q=60" alt="Wind Farm">
+        <img src="https://images.unsplash.com/photo-1548337138-e87d889cc369?auto=format&fit=crop&w=500&q=60" alt="Hydro Plant">
+        <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=500&q=60" alt="Nature Green">
+    </div>
+</section>
+
+<section id="ideas">
+    <div class="title"><h2>Submit Your Idea</h2></div>
+    <form onsubmit="submitIdea(event)">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Describe your renewable energy innovation..." required></textarea>
+        <label style="font-size: 12px; color: #666;">Upload Project Draft (Optional)</label>
+        <input type="file">
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    <p>© 2026 Renewable Resource Energy Project | Designed for a Greener Earth</p>
+</footer>
+
+<script>
+    function submitIdea(e) {
+        e.preventDefault();
+        alert("Success! Your innovative idea has been sent to our team.");
+        e.target.reset();
+    }
+</script>
+
+</body>
+</html>
